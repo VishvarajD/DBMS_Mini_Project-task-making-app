@@ -18,21 +18,28 @@ app.get('/',(req,res)=>{
     
   })
 });
+
+app.get('/file/:filename',(req,res)=>{
+
+  
+   
+  res.render('readmore.ejs')
+})
+
+app.get('/readMore/:filename',(req,res)=>{
+  fs.readFile(`files/${req.params.filename}`,'utf-8',function(err,filedata){
+    res.render('readmore',{filename: req.params.filename,filedata:filedata});
+  })
+
+})
+
 app.post('/create',(req,res)=>{
   fs.writeFile(`files/${req.body.title.split(' ').join('')}.txt`,req.body.content,(err)=>{ 
   })
   res.redirect('/')
 })
-const t = [];
-const c =[];
-app.get('/readMore',(req,res)=>{
-  const title1 = req.body.title;
-  const content1 = req.body.content;
-  c.push(content1);
-  t.push( title1);
-   
-  res.render('readmore.ejs',{c:c,t:t})
-})
+
+
 
 app.listen(`${port}`);
 
