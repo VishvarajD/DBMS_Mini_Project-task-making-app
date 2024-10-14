@@ -19,18 +19,22 @@ app.get('/',(req,res)=>{
   })
 });
 
-app.get('/file/:filename',(req,res)=>{
-
-  
-   
-  res.render('readmore.ejs')
-})
-
 app.get('/readMore/:filename',(req,res)=>{
   fs.readFile(`files/${req.params.filename}`,'utf-8',function(err,filedata){
     res.render('readmore',{filename: req.params.filename,filedata:filedata});
   })
+})
 
+app.get('/edit/:filename',(req,res)=>{
+  res.render('edit',{previous:req.params.filename,previousContent:req.body.content})
+})
+
+app.post('/edit',(req,res)=>{
+  fs.rename(`./files/${req.body.previous}`,`./files/${req.body.new}`,(err)=>{
+    console.log(req.body);
+    
+    res.redirect('/');
+  })
 })
 
 app.post('/create',(req,res)=>{

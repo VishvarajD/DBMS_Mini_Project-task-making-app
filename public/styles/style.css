@@ -1,18 +1,19 @@
-*{
+*,body{
     background-color: black;
     /* color: white; */
     /* text-emphasis-color: white; */
 }
-h1{
+h2{
     color: white;
 }
 .card{
-    background-color: #fff;
+    background-color: antiquewhite;
     width: 200px;
     height: 100px;
+    
 }
 a,.title{
-    background-color: #fff;
+    background-color: antiquewhite;
     text-decoration: none;
 
 }
