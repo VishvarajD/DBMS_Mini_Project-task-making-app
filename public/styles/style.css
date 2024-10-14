@@ -1,0 +1,21 @@
+*{
+    background-color: black;
+    /* color: white; */
+    /* text-emphasis-color: white; */
+}
+h1{
+    color: white;
+}
+.card{
+    background-color: #fff;
+    width: 200px;
+    height: 100px;
+}
+a,.title{
+    background-color: #fff;
+    text-decoration: none;
+
+}
+input,textarea{
+    color: #fff;
+}
