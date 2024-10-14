@@ -14,23 +14,32 @@
     .container{
         color: aliceblue;
     }
-    .border{
-        border: 1px solid rgb(255, 255, 255);
+    .myborder{
+        border: 1px double rgb(255, 255, 255);
+        border-radius: 10px;
     }
     .ert{
         width: auto;
         /* height: 200px; */
         max-height: auto;
     }
+    a{
+        text-decoration: none;
+        color: red;
+    }
     </style>
 </head>
 <body>
     <div class="container " >
-        <div class="row  m-4 "><div class="col-12">Name of the task</div>
-           <div class="col-4 mt-3 text-center border"> <%= filename %></div>
+        <div class="row  m-4 "><div class="col-12"> <h2>Name of the task</h2></div>
+           <div class="col-4 mt-3 text-center myborder "> <%= filename.slice(0,7) %></div>
         </div>
-        <div class="row ert m-4"> <div class="col-12">Description of task</div>
-            <div class="col-12 mt-3 border"> <%= filedata %></div></div>
+        <div class="row ert m-4"> <div class="col-12"><h2>Description of task</h2></div>
+            <div class="col-12 mt-3 myborder"> <%= filedata %></div></div>
+
+        <div class="row">
+            <a href="/" class="m-4">Back to Home Page</a>
+        </div>
     </div>
     
     
