@@ -2,6 +2,8 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path')
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const bodyParser = require('body-parser')
 const app = express();
 const port = 3001;
@@ -10,6 +12,23 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'public' )));
 app.set('view engine','ejs');
+
+//database connection
+dotenv.config();
+const connectDB = async () => {
+  try {
+      await mongoose.connect(process.env.mongo_url)
+      console.log(`DB Connected`);
+      
+  } catch (error) {
+      console.log(`Error while connecting db ${error}`);
+    }
+    
+  }
+  connectDB();
+
+
+
 
 app.get('/',(req,res)=>{
   fs.readdir(`files`,(err,files)=>{
@@ -40,6 +59,28 @@ app.post('/edit',(req,res)=>{
 app.post('/create',(req,res)=>{
   fs.writeFile(`files/${req.body.title.split(' ').join('')}.txt`,req.body.content,(err)=>{ 
   })
+  const name = req.body.title;
+  const desc = req.body.content;
+  const tutSchema = new mongoose.Schema({
+    taskName:{
+      type:String,
+      required:true
+    },
+    taskContent:{
+      type:String,
+      required:true
+    }
+   
+  })
+  //created a collection by 
+  const collection =mongoose.models.tasks || new mongoose.model('tasks',tutSchema)
+  
+  data={
+   taskName:name,
+     taskContent:desc,
+     
+   }
+  collection.insertMany([data])
   res.redirect('/')
 })
 
