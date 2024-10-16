@@ -4,6 +4,7 @@
 }
 h2{
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .card{
     background-color: antiquewhite;
@@ -18,4 +19,44 @@ a,.title{
 }
 input,textarea{
     color: #fff;
+}
+.edit{
+    color: purple;
+}
+.name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+    color: antiquewhite;
+    font-size: 250%;
+    font-family: monospace;
+    border-bottom: 2px solid wheat;
+}
+.myborder{
+    border: 2px solid wheat;
+    border-radius: 15px;
+}
+.tname{
+    color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tcontent{
+    color: antiquewhite;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.tedit{
+    background-color: black;
+}
+.tdelete{
+    background-color: purple;
+    border-radius: 10px;
+
+}
+textarea{
+    max-width: 300px;
+}
+h5,h6{
+    color: antiquewhite;
+}
+h6{
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

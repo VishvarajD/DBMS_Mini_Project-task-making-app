@@ -50,19 +50,14 @@ app.get('/',async (req,res)=>{
 
 
 app.post('/create',async (req,res)=>{
- 
   const {title ,content} = req.body;
-   
-
   const newTask = new collection({ taskName: title, taskContent:content });
   await newTask.save();
-  res.redirect('/')
- 
+  res.redirect('/');
 });
 
 
 app.get('/edit/:filename',async (req,res)=>{
-
   const task = await collection.findById(req.params.filename);
   res.render('edit.ejs', { task });
 })

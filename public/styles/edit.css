@@ -1,0 +1,34 @@
+*,body{
+    background-color: black;
+}
+h1{
+    padding-top: 10px;
+    color: wheat;
+    padding-bottom:15px ;
+    border-bottom:2px solid white ;
+}
+body{
+    background-color: black;
+}
+button{
+    color: rgb(0, 0, 0);
+    background-color: aqua;
+}
+.myborder{
+    border: 2px solid white;
+    
+}
+
+a{
+    background-color: black;
+    text-decoration: none;
+    color: blueviolet;
+
+}
+textarea{
+    height: 250px;
+    max-height: auto;
+}
+.form{
+    color: aliceblue;
+}
