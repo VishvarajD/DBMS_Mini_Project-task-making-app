@@ -69,7 +69,7 @@
 
         <div class="row">
         <% tasks.forEach(task => { %>
-            <div class="col-2 myborder mx-3 text-center">
+            <div class="col-2 myborder mx-3 text-center my-3">
             
            <div class="row tname">
             <div class="col-12 mt-3">
@@ -87,7 +87,7 @@
                 <a href="/edit/<%= task._id %>" class="tedit">Edit</a>
             </div>
         </div>
-        <div class="row ">
+        <div class="row">
             <div class="col-12 my-3">
                 <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
                     <button type="submit" class="tdelete">Delete</button>
