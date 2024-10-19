@@ -35,19 +35,13 @@ const connectDB = async () => {
       type:String,
       required:true
     }
-   
   });
   const collection =mongoose.models.tasks || new mongoose.model('tasks',tutSchema);
-
-
-
-
 
 app.get('/',async (req,res)=>{
   const tasks = await collection.find({}); 
   res.render('index.ejs',{tasks}); 
   });
-
 
 app.post('/create',async (req,res)=>{
   const {title ,content} = req.body;
@@ -56,14 +50,12 @@ app.post('/create',async (req,res)=>{
   res.redirect('/');
 });
 
-
 app.get('/edit/:filename',async (req,res)=>{
   const task = await collection.findById(req.params.filename);
   res.render('edit.ejs', { task });
 })
 
 app.post('/edit/:filename',async (req,res)=>{
-
     try{
       const {title ,content } = req.body;
     await collection.findByIdAndUpdate(req.params.filename,{taskName:title,taskContent:content
@@ -71,19 +63,13 @@ app.post('/edit/:filename',async (req,res)=>{
     res.redirect('/');
   }catch(err){
     console.log(err);
-    res.redirect('/')
-    
+    res.redirect('/') 
   }
-
 })
 app.post('/delete/:filename',async (req,res)=>{
   await collection.findByIdAndDelete(req.params.filename);
     res.redirect('/');
 })
-
-
-
-
 
 app.listen(`${port}`,);
 
